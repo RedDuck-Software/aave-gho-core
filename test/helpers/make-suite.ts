@@ -46,7 +46,7 @@ import {
   getTestnetReserveAddressFromSymbol,
   STAKE_AAVE_PROXY,
   TREASURY_PROXY_ID,
-} from '@aave/deploy-v3';
+} from '@moonler/deploy-v3';
 
 declare var hre: HardhatRuntimeEnvironment;
 

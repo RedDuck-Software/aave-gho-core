@@ -4,7 +4,7 @@ import {
   FORK,
   FORK_BLOCK_NUMBER,
   getAlchemyKey,
-} from '@aave/deploy-v3';
+} from '@moonler/deploy-v3';
 import { HardhatNetworkForkingUserConfig } from 'hardhat/types';
 import fs from 'fs';
 

@@ -7,7 +7,7 @@ import { config } from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/types';
 import { TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS } from 'hardhat/builtin-tasks/task-names';
 import { subtask } from 'hardhat/config';
-import { DEFAULT_NAMED_ACCOUNTS, eEthereumNetwork } from '@aave/deploy-v3';
+import { DEFAULT_NAMED_ACCOUNTS, eEthereumNetwork } from '@moonler/deploy-v3';
 import '@nomicfoundation/hardhat-toolbox';
 import 'hardhat-deploy';
 import 'hardhat-contract-sizer';
@@ -18,7 +18,7 @@ import 'hardhat-preprocessor';
 config();
 
 import { loadHardhatTasks } from './helpers/misc-utils';
-import '@aave/deploy-v3';
+import '@moonler/deploy-v3';
 
 // Prevent to load tasks before compilation and typechain
 if (!process.env.SKIP_LOAD) {
@@ -30,8 +30,9 @@ const hardhatConfig: HardhatUserConfig = {
     hardhat: hardhatNetworkSettings,
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
     sepolia: getCommonNetworkConfig('sepolia', 11155111),
+    mumbai: getCommonNetworkConfig('mumbai', 80001),
     localhost: {
-      url: 'http://127.0.0.1:8545',
+      url: 'http://localhost:8545',
       ...hardhatNetworkSettings,
     },
   },
@@ -85,7 +86,7 @@ const hardhatConfig: HardhatUserConfig = {
     alwaysGenerateOverloads: false, // should overloads with full signatures like deposit(uint256) be generated always, even if there are no overloads?
   },
   gasReporter: {
-    enabled: process.env.REPORT_GAS ? true : false,
+    enabled: !!process.env.REPORT_GAS,
   },
   mocha: {
     timeout: 0,
@@ -95,7 +96,7 @@ const hardhatConfig: HardhatUserConfig = {
     contracts: [
       {
         artifacts: './artifacts',
-        deploy: 'node_modules/@aave/deploy-v3/dist/deploy',
+        deploy: 'node_modules/@moonler/deploy-v3/dist/deploy',
       },
     ],
   },

@@ -4,7 +4,7 @@ import {
   TREASURY_PROXY_ID,
   getAaveProtocolDataProvider,
   waitForTx,
-} from '@aave/deploy-v3';
+} from '@moonler/deploy-v3';
 import { GhoToken } from '../../../types/src/contracts/gho/GhoToken';
 import { ghoReserveConfig } from '../../helpers/config';
 import {

@@ -1,8 +1,12 @@
 import { task } from 'hardhat/config';
 import { ghoTokenConfig } from '../../helpers/config';
 
-import { getPoolConfiguratorProxy, INCENTIVES_PROXY_ID, TREASURY_PROXY_ID } from '@aave/deploy-v3';
-import { ConfiguratorInputTypes } from '@aave/deploy-v3/dist/types/typechain/@aave/core-v3/contracts/interfaces/IPoolConfigurator';
+import {
+  getPoolConfiguratorProxy,
+  INCENTIVES_PROXY_ID,
+  TREASURY_PROXY_ID,
+} from '@moonler/deploy-v3';
+import { ConfiguratorInputTypes } from '@moonler/deploy-v3/dist/types/typechain/@aave/core-v3/contracts/interfaces/IPoolConfigurator';
 
 const printReserveInfo = (initReserveEvent) => {
   console.log(`Gho Reserve Initialized`);
