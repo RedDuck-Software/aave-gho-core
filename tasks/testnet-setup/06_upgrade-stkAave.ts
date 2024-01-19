@@ -3,7 +3,7 @@ import {
   getAaveProtocolDataProvider,
   getProxyAdminBySlot,
   STAKE_AAVE_PROXY,
-} from '@moonler/deploy-v3';
+} from '@aave/deploy-v3';
 import { getBaseImmutableAdminUpgradeabilityProxy } from '../../helpers/contract-getters';
 import { impersonateAccountHardhat } from '../../helpers/misc-utils';
 import { StakedAaveV3__factory } from '../../types';
